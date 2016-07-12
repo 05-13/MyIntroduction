@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+	<title>My Fullpage</title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+		}
+		.components{
+			width:50%;
+			height: 50px;
+			margin-bottom: 20px;
+			background-color: #66ffcc;
+			display: none;
+		}
+	</style>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="http://libs.baidu.com/jqueryui/1.8.22/jquery-ui.min.js "></script>
+	<script src="js/lib/jquery.fullPage.js"></script>
+	<script>
+		$(function(){
+			$('#h5').fullpage({
+				'sectionsColor':['#254875','#0f0','#695684'],
+				onLeave : function(index,nextIndex,direction){
+					//上一页离开事件
+					$('#h5').find('.page').eq(index - 1).trigger('onLeave');
+				},
+				afterLoad : function(anchorLink,index){
+					//当前页载入事件
+					$('#h5').find('.page').eq(index - 1).trigger('afterLoad');
+				}
+			});
+			//上一页离开
+			$('.page').on('onLeave',function(){
+				$(this).find('.components').trigger('onLeave');
+			});
+			//当前页载入
+			$('.page').on('afterLoad',function(){
+				$(this).find('.components').trigger('afterLoad');
+			});
+			//上一页所有组件渐隐
+			$('.components').on('onLeave',function(){
+				$(this).fadeOut();
+				return false;
+			});
+			//当前页所有组件渐显
+			$('.components').on('afterLoad',function(){
+				$(this).fadeIn();
+				return false;
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="h5">
+		<div class="page section" id="page1">
+			<div class="components logo">logo</div>
+		</div>
+		<div class="page section" id="page2">
+			<div class="components desc">desc</div>
+		</div>
+		<div class="page section" id="page3">
+			<div class="components bar">bar</div>
+		</div>
+	</div>
+</body>
+</html>
