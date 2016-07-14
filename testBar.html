@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+	<title>My Fullpage</title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+			background-color: #000;
+			font-size: 12px;
+		}
+		.iphone{
+			width: 340px;
+			height: 540px;
+			background-color: #fff;
+			position: absolute;
+			left:50%;
+			top:50%;
+			margin: -270px 0 0 -170px;
+		}
+	</style>
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/bar.css">
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="http://libs.baidu.com/jqueryui/1.8.22/jquery-ui.min.js "></script>
+	<script src="js/lib/jquery.fullPage.js"></script>
+	<script src="js/base.js"></script>
+	<script src="js/bar.js"></script>
+</head>
+<body>
+	<div class="iphone">
+		
+	</div>
+
+	<script>
+		var config = {
+			type: 'bar',
+			width: 540,
+			height: 600,
+			data: [
+				['Javascript', 1 ,'green'],
+				['css', 0.2],
+				['html', 0.3],
+				['css3', 0.05],
+				['node', 0.5],
+			],
+			css:{
+				bottom: 0,
+				opacity: 0,
+			},
+			animateIn:{bottom:200,opacity:1},
+			animateOut:{bottom:0,opacity:0},
+			center: true,
+		};
+		var h5 = new Bar('mybar',config);
+		$('.iphone').append(h5);
+
+		//点击模拟页面切换事件
+		var leave = true;
+		$('body').click(function(){
+			leave = !leave;
+			$('.component').trigger(leave ? 'onLeave' : 'afterLoad');
+		});
+	</script>
+</body>
+</html>
