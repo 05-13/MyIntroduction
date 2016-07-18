@@ -27,14 +27,18 @@ var Base = function(name,config){
 
 	//上一页所有组件渐隐
 	component.on('onLeave',function(){
-		component.addClass(cfg.type+'_leave').removeClass(cfg.type+'_load');
-		cfg.animateOut && component.animate(cfg.animateOut);		
+	    component.addClass(cfg.type+'_leave').removeClass(cfg.type+'_load');	
+		setTimeout(function(){
+			cfg.animateOut && component.animate(cfg.animateOut);	
+        },cfg.delayOut || 0);
 		return false;
 	});
 	//当前页所有组件渐显
 	component.on('afterLoad',function(){
 		component.addClass(cfg.type+'_load').removeClass(cfg.type+'_leave');
-		cfg.animateIn && component.animate(cfg.animateIn);
+		setTimeout(function(){
+			cfg.animateIn && component.animate(cfg.animateIn);	
+        },cfg.delayIn || 0);
 		return false;
 	});
 

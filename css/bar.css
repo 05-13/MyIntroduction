@@ -61,6 +61,6 @@
 }
 
 .bar_leave .per{
-	-webkit-transition: all 0.3s;
+	-webkit-transition: all 0.5s;
 	-webkit-opacity:0;
 }
