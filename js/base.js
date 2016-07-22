@@ -25,6 +25,12 @@ var Base = function(name,config){
 		});
 	}
 
+	//如果存在点击事件，则侦听点击事件
+	if(typeof cfg.onclick === 'function'){
+		component.on('click',cfg.onclick);
+	}
+
+
 	//上一页所有组件渐隐
 	component.on('onLeave',function(){
 	    component.addClass(cfg.type+'_leave').removeClass(cfg.type+'_load');	

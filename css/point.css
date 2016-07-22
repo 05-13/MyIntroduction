@@ -10,6 +10,7 @@
 	-webkit-opacity:0;
 	-webkit-transform:scale(.1);
 	font-size: 30px;
+    color:#FFF;
 }
 
 .component_point .point .pName{

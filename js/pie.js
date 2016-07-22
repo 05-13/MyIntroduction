@@ -51,12 +51,12 @@ var Pie = function(name,cfg){
 		text.append(per);
 		//显示位置修正
 		if(x>w/2){
-			text.css('left',x/2);
+			text.css('left',x/2+5);
 		}else{
 			text.css('right',(w-x)/2);
 		}
 		if(y>h/2){
-			text.css('top',y/2);
+			text.css('top',y/2-5);
 		}else{
 			text.css('bottom',(h-y)/2);
 		}
@@ -76,8 +76,8 @@ var Pie = function(name,cfg){
 	$(canvas).css('zIndex',3);
 	component.append(canvas);
 
-	ctx.fillStyle = "#FFF";
-	ctx.strokeStyle = "#FFF";
+	ctx.fillStyle = "#F0F0F0";
+	ctx.strokeStyle = "#F0F0F0";
 	ctx.lineWidth = 1;
 	ctx.arc(r,r,r,0,2*Math.PI);
 	ctx.fill();
@@ -108,9 +108,9 @@ var Pie = function(name,cfg){
 	//生长动画
 	component.on('afterLoad',function(){
 		var s = 0;
-		for(i=0;i<100;i++){
+		for(i=0;i<50;i++){
 			setTimeout(function(){
-				s+=0.01;
+				s+=0.02;
 				drawPie(s);
 			},i*10);
 		}
@@ -118,9 +118,9 @@ var Pie = function(name,cfg){
 	//退场动画
 	component.on('onLeave',function(){
 		var s = 1;
-		for(i=0;i<100;i++){
+		for(i=0;i<50;i++){
 			setTimeout(function(){
-				s-=0.01;
+				s-=0.02;
 				drawPie(s);
 			},i*10);
 		}

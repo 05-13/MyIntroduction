@@ -40,6 +40,24 @@ var H5 = function(){
 			case 'base':
 				component = new Base(name,cfg);
 				break;
+			case 'polyline':
+				component = new Polyline(name,cfg);
+				break;
+			case 'pie':
+				component = new Pie(name,cfg);
+				break;
+			case 'point':
+				component = new Point(name,cfg);
+				break;
+			case 'bar':
+				component = new bar(name,cfg);
+				break;
+			case 'bar_v':
+				component = new Bar_v(name,cfg);
+				break;
+			case 'rader':
+				component = new Rader(name,cfg);
+				break;
 			default:
 		}
 		page.append(component);
@@ -48,8 +66,9 @@ var H5 = function(){
 
 	/**
 	 * H5对象显示
+	 * 出入参数firstPage: 从第几页开始显示
 	 */
-	this.loader = function(){
+	this.loader = function(firstPage){
 		//fullpage样式
 		this.ele.fullpage({
 			onLeave : function(index,nextIndex,direction){
@@ -62,6 +81,10 @@ var H5 = function(){
 			}
 		});	
 		this.ele.show();		//页面显示
+
+		if(firstPage){
+			$.fn.fullpage.moveTo(firstPage);
+		}
 	};
 
 	return this;
