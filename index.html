@@ -53,7 +53,7 @@
 			50% {bottom:0px}
 		}
 
-		/* 返回首页 上下震荡动画 */		
+		/* 返回首页 上下震荡动画 */
 		.name_goBack{
 			top:30px;
 			-webkit-animation:upAndDown 2s infinite 2s;
@@ -67,12 +67,14 @@
 	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 	<script src="http://libs.baidu.com/jqueryui/1.8.22/jquery-ui.min.js "></script>
 	<script src="js/lib/jquery.fullPage.js"></script>
-	
-	
+
+
 	<link rel="stylesheet" href="css/h5.css">
 	<link rel="stylesheet" href="css/loading.css">
+	<link rel="stylesheet" href="css/H5_Component.css">
 	<script src="js/H5.js"></script>
 	<script src="js/loading.js"></script>
+	<script src="js/H5_Component.js"></script>
 </head>
 <body>
 	<div class="loading">
@@ -88,8 +90,8 @@
 		var res = ['base','bar','bar_v','point','polyline','rader','pie'],
 			html = [];
 		for(var i = 0;i<res.length;i++){
-			html.push('<link rel="stylesheet" type="text/css" href="css/'+ res[i] +'.css">');
-			html.push('<script src="js/'+ res[i] +'.js"><\/script>');
+			// html.push('<link rel="stylesheet" type="text/css" href="css/'+ res[i] +'.css">');
+			// html.push('<script src="js/'+ res[i] +'.js"><\/script>');
 		}
 		document.write(html.join(''));
 	</script>
@@ -107,7 +109,7 @@
 						bg:'img/face_slogan.png',
 						css:{opacity:0},
 						animateIn:{top:'16%',opacity:1},
-						animateOut:{top:'0%',opacity:0},			
+						animateOut:{top:'0%',opacity:0},
 					})
 					.addComponent('slogan',{
 						center:true,
@@ -299,7 +301,7 @@
 						delayIn: 0,
 						animateOut:{bottom:'10%',opacity:0},
 						delayOut: 0,
-						
+
 						center: true,
 
 					})

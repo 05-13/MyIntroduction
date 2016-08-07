@@ -38,25 +38,25 @@ var H5 = function(){
 			page = this.page;	//获取当前页对象
 		switch(cfg.type){
 			case 'base':
-				component = new Base(name,cfg);
+				component = new H5_Component.Base(name,cfg);
 				break;
 			case 'polyline':
-				component = new Polyline(name,cfg);
+				component = new H5_Component.Polyline(name,cfg);
 				break;
 			case 'pie':
-				component = new Pie(name,cfg);
+				component = new H5_Component.Pie(name,cfg);
 				break;
 			case 'point':
-				component = new Point(name,cfg);
+				component = new H5_Component.Point(name,cfg);
 				break;
 			case 'bar':
-				component = new bar(name,cfg);
+				component = new H5_Component.Bar(name,cfg);
 				break;
 			case 'bar_v':
-				component = new Bar_v(name,cfg);
+				component = new H5_Component.Bar_v(name,cfg);
 				break;
 			case 'rader':
-				component = new Rader(name,cfg);
+				component = new H5_Component.Rader(name,cfg);
 				break;
 			default:
 		}
@@ -79,7 +79,7 @@ var H5 = function(){
 				//当前页载入事件
 				$(this).find('.component').trigger('afterLoad');
 			}
-		});	
+		});
 		this.ele.show();		//页面显示
 
 		if(firstPage){
